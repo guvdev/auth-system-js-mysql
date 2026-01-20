@@ -1,3 +1,10 @@
+// 1️⃣ Cliente envia dados
+// 2️⃣ Backend valida
+// 3️⃣ Backend consulta banco
+// 4️⃣ Backend criptografa senha
+// 5️⃣ Backend salva usuário
+// 6️⃣ Backend responde
+
 const express = require("express");
 const cors = require("cors");
 const db = require("./database");
@@ -7,7 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/", (req, res) => { //Quando alguém acessar a URL /, eu vou responder com um JSON.
   res.json({ message: "API de autenticação funcionando " });
 });
 
@@ -20,11 +27,10 @@ app.listen(PORT, () => {
 const bcrypt = require("bcrypt");
 
 // ROTA DE REGISTRO
-app.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
-
+app.post("/register", async (req, res) => { //async = “Aqui dentro eu vou usar código que demora”
+  const { name, email, password } = req.body; //POST = enviar dados (nome, email, senha. req.body pega os dados que o client enviou.
   // 1. Validação básica
-  if (!name || !email || !password) {
+  if (!name || !email || !password) { // !name SE name NÃO existir
     return res.status(400).json({
       success: false,
       message: "Preencha todos os campos",

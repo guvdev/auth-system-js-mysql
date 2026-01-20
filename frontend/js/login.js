@@ -3,6 +3,21 @@ cadastrar.addEventListener("click", () => {
   window.location.href = "register.html";
 });
 
+const regain = document.querySelector("#regain");
+regain.addEventListener("click", () => {
+  toast.textContent = 'Funcionalidade em desenvolvimento';
+  toast.classList.remove('bg-green-500', 'bg-red-500');
+  toast.classList.add('bg-yellow-400');
+  toast.classList.remove('opacity-0');
+  toast.classList.add('opacity-100');
+  setTimeout(() => {
+    toast.classList.remove('opacity-100');
+    toast.classList.add('opacity-0');
+  }, 3000);
+});
+
+
+
 const form = document.querySelector("form");
 
 form.addEventListener("submit", async (e) => {
@@ -19,12 +34,37 @@ form.addEventListener("submit", async (e) => {
     });
 
     const data = await response.json();
-    alert(data.message);
-
+    // Configura o toast
+    toast.textContent = data.message;
     if (data.success) {
-      window.location.href = "dashboard.html";
+      toast.classList.remove('bg-red-500');
+      toast.classList.add('bg-green-500');
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 2000);
+    } else {
+      toast.classList.remove('bg-green-500');
+      toast.classList.add('bg-red-500');
     }
-  } catch (error) {
-    alert("Erro ao conectar com o servidor");
+
+    // Mostra o toast
+    toast.classList.remove('opacity-0');
+    toast.classList.add('opacity-100');
+
+    // Esconde depois de 3 segundos
+    setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0');
+    }, 3000);
+
+  } catch (err) {
+    toast.textContent = 'Erro de conexão com o servidor';
+    toast.classList.remove('opacity-0', 'bg-green-500');
+    toast.classList.add('opacity-100', 'bg-red-500');
+
+    setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0');
+    }, 3000);
   }
 });

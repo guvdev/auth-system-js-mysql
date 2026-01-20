@@ -18,6 +18,8 @@
 --
 -- Table structure for table `users`
 --
+CREATE DATABASE IF NOT EXISTS auth_system;
+USE auth_system;
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -39,7 +41,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'boca09','160269c307@webxio.pro','$2b$10$cTsZ9z3Ocxug6qhiVlcuqOsMSyw7d8CT0UOlhLH1GzunGeQTuV2BC','2026-01-15 23:05:24'),(2,'dolorisvibe','hadshdas@gmail.com','$2b$10$0Ac9rIB4/jmMMf9GqBI5hOKzP1AjItUnBzOgm5sMP796A0ol/IQ2.','2026-01-15 23:21:45'),(3,'1234','1234@gmail.com','$2b$10$.I4DtjViJsl0OR88SDXBW.V7b373No/Gh8GrInbMsQseVWqhpV1r.','2026-01-15 23:28:11'),(4,'123','123@gmail.com','$2b$10$ENxoJJG39Ogfh3559myiXuk78XjQZ7OwRaOB.XcPOAbJLUKdCTQam','2026-01-15 23:30:16'),(5,'rogerio','rogerio@gmail.com','$2b$10$0wk/XB/rlIczzccdJU6R0eCq375OhWQ4QnXpZ6A5GBJg54u9TRefi','2026-01-15 23:34:17');
+INSERT INTO `users` VALUES (1,'');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
